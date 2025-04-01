@@ -116,8 +116,27 @@ Para mais informações acesse [Aula 01: Fluxogramas.](https://www.notion.so/cai
    
    ```mermaid
    flowchart TD
-      G["Sua resposta aqui!"]
+      
+        start((Início)) --> num1[\Ler número N\]
+        num1 --> verify1{Se N < 0?}
+   
+        verify1 --> |Yes| A1[/Exibir Número inválido/]
+        verify1 --> |No| A2[Inicializar F = 1 e i = 1]
+   
+        A2 --> verify2{Se i > N?}
+        
+        verify2 --> |Yes| B1[/Exibir F/]
+        verify2 --> |No| B2[/F = F * i/]
+   
+        B2 --> C[/i = i + 1/]
+        C --> verify2
+   
+        A1 --> finish([Fim])
+        B1 --> finish
+
    ```
+   
+
    
 9. Elabore um fluxograma para verificar se um número digitado pelo usuário é par.
    
@@ -129,12 +148,41 @@ Para mais informações acesse [Aula 01: Fluxogramas.](https://www.notion.so/cai
    
    ```mermaid
    flowchart TD
-      H["Sua resposta aqui!"]
+      start((Início)) --> num1[\Ler número N\]
+        num1 --> verify1{Se N % 0?}
+   
+        verify1 --> |Yes| A1[/Número par/]
+        verify1 --> |No| A2[/Número ímpar/]
+        
+        
+   
+        
+   
+        A1 --> finish([Fim])
+        A2 --> finish
    ```
    
 10. Elabore um fluxograma para verificar se um número digitado pelo usuário é primo.
-   
    ```mermaid
    flowchart TD
-      I["Sua resposta aqui!"]
+      
+    Start(Início) --> num[\ Ler número N \]
+    num --> verify01{Se N < 2?}
+
+    verify01 --> |Yes| A1[/Exibir: Não é primo/]
+    verify01 --> |No| A2[Inicializar i = 2]
+    A2 --> verify02{Se i * i > N?}
+
+    verify02 --> |Yes| B1[/Exibir: É primo/]
+    verify02 --> |No| verify03{Se N % i == 0?}
+
+    verify03 --> |Yes| C1[\Exibir: Não é primo\]
+    verify03 --> |No| C2[i = i + 1]
+    C2 --> verify02
+
+    A1 --> Finish([Fim])
+    B1 --> Finish
+    C1 --> Finish
+    
+
    ```
