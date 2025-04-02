@@ -11,7 +11,8 @@ public class Main {
         Integer coeficienteB = ((x1 + x2) * (-1));
         Integer coeficienteC = x1 * x2;
 
-        String coeficienteB_str = String.valueOf(coeficienteB), coeficienteC_str = String.valueOf(coeficienteC);
+        String coeficienteB_str = String.valueOf(coeficienteB);
+        String coeficienteC_str = String.valueOf(coeficienteC);
         if (coeficienteB > 0){
             coeficienteB_str = "+ " + coeficienteB;
         }
