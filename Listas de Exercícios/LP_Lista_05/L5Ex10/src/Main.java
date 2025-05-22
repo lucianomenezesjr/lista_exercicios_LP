@@ -30,8 +30,6 @@ public class Main {
                 for (int k=0; k<matrizA[0].length; k++){
                     matrizC[i][j] += matrizA[i][k] * matrizB[k][j];
 
-
-
                 }
 
             }
