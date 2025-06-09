@@ -5,6 +5,8 @@ public class Main {
 
         int num = Integer.parseInt(JOptionPane.showInputDialog("Digite um número: "));
         contador(num);
+        int soma = contadorRecursivo(num);
+        System.out.println("Soma recursiva: " + soma);
     }
 
     public static int contador(int n){
@@ -18,5 +20,12 @@ public class Main {
         }
         System.out.println(somaDeTodosValores);
         return somaDeTodosValores;
+    }
+
+    public static int contadorRecursivo(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        return n + contadorRecursivo(n - 1);
     }
 }

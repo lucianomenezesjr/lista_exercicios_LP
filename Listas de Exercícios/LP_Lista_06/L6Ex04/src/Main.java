@@ -3,8 +3,11 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
 
-        String palavraUsuario = JOptionPane.showInputDialog("Digite uma palavra e verifique se ela é um palíndromo:");
-        palindromo(palavraUsuario);
+        String palavra = JOptionPane.showInputDialog("Digite uma palavra e verifique se ela é um palíndromo:");
+        palindromo(palavra);
+
+        boolean ehPalindromo = palindromoRecursivo(palavra.toLowerCase(), 0, palavra.length() - 1);
+        System.out.println(palavra + (ehPalindromo ? " é" : " não é") + " palíndromo");
         
 
     }
@@ -31,6 +34,16 @@ public class Main {
             System.out.println(resultado);
         }
         return resultado;
+    }
+
+    public static boolean palindromoRecursivo(String palavra, int inicio, int fim) {
+        if (inicio >= fim) {
+            return true;
+        }
+        if (palavra.charAt(inicio) != palavra.charAt(fim)) {
+            return false;
+        }
+        return palindromoRecursivo(palavra, inicio + 1, fim - 1);
     }
 
 }

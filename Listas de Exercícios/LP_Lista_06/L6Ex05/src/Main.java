@@ -1,32 +1,29 @@
 public class Main {
     public static void main(String[] args) {
-
         int[] array = {1, 3, 5, 7, 9, 11, 13};
-        int left = 0;
-        int right = array.length -1;
-        int expectedValue = 11;
-        String resultado = "-1";
+        int valor = 11;
+        int posicao = buscaBinariaRecursiva(array, valor, 0, array.length - 1);
 
-        while(left <= right){
-
-            int half = (left + right)/2;
-
-            if(array[half] == expectedValue){
-                resultado = "O valor foi encontrado na posição " + half;
-                break;
-            }
-            else if(array[half] > expectedValue){
-                right = half -1;
-
-            }
-            else{
-                left = half + 1;
-            }
-
+        if (posicao == -1) {
+            System.out.println("Valor não encontrado");
+        } else {
+            System.out.println("Valor encontrado na posição: " + posicao);
         }
-        System.out.println(resultado);
+    }
 
+    public static int buscaBinariaRecursiva(int[] array, int valor, int esquerda, int direita) {
+        if (esquerda > direita) {
+            return -1;
+        }
 
+        int meio = (esquerda + direita) / 2;
 
+        if (array[meio] == valor) {
+            return meio;
+        } else if (array[meio] > valor) {
+            return buscaBinariaRecursiva(array, valor, esquerda, meio - 1);
+        } else {
+            return buscaBinariaRecursiva(array, valor, meio + 1, direita);
+        }
     }
 }

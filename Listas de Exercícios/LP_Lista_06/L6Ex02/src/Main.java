@@ -4,6 +4,9 @@ public class Main {
         int num = 5;
         fatorial(num);
 
+        int fat = fatorialRecursivo(num);
+        System.out.println(num + "! = " + fat);
+
     }
 
     public static int fatorial(int n){
@@ -14,5 +17,12 @@ public class Main {
         }
         System.out.println(n + "! = " + resultadoFatorial);
         return  0;
+    }
+
+    public static int fatorialRecursivo(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * fatorialRecursivo(n - 1);
     }
 }

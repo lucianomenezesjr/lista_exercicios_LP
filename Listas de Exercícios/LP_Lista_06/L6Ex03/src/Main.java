@@ -8,6 +8,9 @@ public class Main {
 
     potencia(x, y);
 
+    int pot = potenciaRecursiva(x, y);
+    System.out.println(x + " elevado a " + y + " é " + pot);
+
 
     }
 
@@ -21,5 +24,12 @@ public class Main {
         }
         System.out.println( x + " elevado a " + y + " é " + resultado);
         return resultado;
+    }
+
+    public static int potenciaRecursiva(int x, int y) {
+        if (y == 0) {
+            return 1;
+        }
+        return x * potenciaRecursiva(x, y - 1);
     }
 }
